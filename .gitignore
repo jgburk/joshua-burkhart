@@ -1,0 +1,21 @@
+# Office lock and temp files
+~$*.xlsx
+~$*.xlsm
+~$*.docx
+~$*.pptx
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Editor backups and temp files
+*.tmp
+*.bak
+*~
+
+# Never publish: secrets and private material
+.env
+*.key
+*.pem
+secrets/
+private/
