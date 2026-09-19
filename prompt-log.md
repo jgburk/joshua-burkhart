@@ -6,7 +6,7 @@ A running record of AI sessions that mattered. An entry is logged when a session
 
 **What I asked for.** Stand up this portfolio repository to the fixed Stage 0 standard: directory skeleton with stub READMEs, grouped `.gitignore`, the five root files, two descriptive commits, a public push, and a collaborator invite for the instructor.
 
-**What the assistant built.** The folder layout (`.claude/skills`, `capabilities`, `docs/briefs`, `docs/decisions`, `data`, `analysis`, `analysis/figures`) with a one-sentence README in each; the `.gitignore`, printed for review before commit; `README.md` with the bio placeholder and an empty engagement index; `RESUME.md` converted from my Word resume; `AGENTS.md` written from my answers to four questions on explanation style, drafting limits, what never goes into a model, and house style; the one-line `CLAUDE.md`; and this log. It made the two commits, pushed to `jgburk/joshua-burkhart`, and sent the collaborator invite to `adamwstauffer`.
+**What the assistant built.** The folder layout (`.claude/skills`, `capabilities`, `docs/briefs`, `docs/decisions`, `data`, `analysis`, `analysis/figures`) with a one-sentence README in each; the `.gitignore`, printed for review before commit; `README.md` with the bio placeholder and an empty engagement index; `RESUME.md` converted from my Word resume; `AGENTS.md` written from my answers to four questions on explanation style, drafting limits, what never goes into a model, and house style; the one-line `CLAUDE.md`; and this log. It made the two commits and pushed to `jgburk/joshua-burkhart`; I sent the collaborator invite to `adamwstauffer` myself through the GitHub web UI.
 
 **What I had to correct.**
 
