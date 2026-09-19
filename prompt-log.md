@@ -18,3 +18,11 @@ A running record of AI sessions that mattered. An entry is logged when a session
 - The assistant drafted one bio from `RESUME.md`. I rewrote it: I cut the narrative framing and the closing sentence about the portfolio, replaced the industry description with named sectors and product types, and shortened the credentials.
 - The first `AGENTS.md` prescribed short declarative sentences. I pointed the assistant at my *Patterns* (2023) article to learn my actual voice; it rewrote the prose rules to call for declarative headings that state the finding, claims that carry their number and comparison, choices that carry their reason, calibrated hedging, a limitations section, and cutting rather than adding when editing my prose.
 - `RESUME.md` now lists both GitHub accounts (`joshuaburkhart` and the `jgburk` portfolio) and both career documents carry the one-line AI disclosure the course asks for.
+
+## 2026-09-18 — Grade the repository against the course standard and fix AGENTS.md
+
+**What I asked.** Review the Stage 0 pages and grade the submission, then apply the fixes.
+
+**What the assistant produced.** A grade of A− against the nine-item checklist (all met) with five deductions, all in `AGENTS.md`, taken from the portfolio-repo standard and the AI-conventions baseline the stage page delegates to. It then edited `AGENTS.md`: the assistant may no longer draft briefs, analyses, memos, or reflections, first draft included; the baseline Naming section is included word for word; the standing prompt-log rule is the exact sentence the setup prompt requires; the never-paste list names my own records (JABSOM Alzheimer's project data, dbGaP-governed GTEx and TCGA, ICI biomarker cohort data, manuscripts under review, grant applications); the file names my field; and a Mistakes to avoid section records the three errors from this session.
+
+**What was wrong and how it was caught.** The first `AGENTS.md` permitted first drafts of briefs and memos because the assistant offered that as an option and I chose it; the course forbids it. Caught by reading the AI-conventions baseline rather than the stage page alone. The verbatim Naming section contains the word "week," which the setup grep flags; kept verbatim because the standard requires it and the rule targets folder names.
