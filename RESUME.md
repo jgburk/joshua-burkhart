@@ -98,3 +98,8 @@ Dean's List, Student Senator, Vice President of Upsilon Pi Epsilon Honor Society
 - LinkedIn: <https://www.linkedin.com/in/joshuaburkhart>
 - ORCID: <https://orcid.org/0000-0001-9279-1556>
 - GitHub: <https://github.com/joshuaburkhart>
+- Portfolio: <https://github.com/jgburk/joshua-burkhart>
+
+---
+
+_Converted from Word to Markdown with Claude Code (Anthropic, 2026); content written by me._

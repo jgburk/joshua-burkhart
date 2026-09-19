@@ -32,10 +32,19 @@ If a task appears to need any of these, stop and ask me for a redacted or synthe
 
 ### Prose
 
-- Short declarative sentences in active voice.
-- Plain words. No marketing voice, no superlatives, no filler.
-- State the claim, then the evidence. Numbers carry units and a source.
-- Markdown headings in sentence case. One idea per paragraph.
+Voice reference: Burkhart et al., "Biology-inspired graph neural network encodes reactome and reveals biochemical reactions of disease," *Patterns* (2023), <https://pmc.ncbi.nlm.nih.gov/articles/PMC10382942/>, and the bio in `README.md`. Match them.
+
+- Headings are declarative sentences that state the finding, not the topic. "Our GNN differs from and extends existing models," not "Comparison with prior work."
+- Every claim carries its number and its comparison in the same sentence. State the metric, the control it is measured against, and the margin.
+- Every choice carries its reason in the same sentence. "PCA was selected due to concerns for both performance and simplicity." A choice without a stated reason is unfinished.
+- Hedge in proportion to the evidence. *Plausibly*, *may*, *we contend*, and *suggesting* each mean something different; use the one the evidence supports and no stronger.
+- Limitations and compromises get their own section, stated plainly, each with the reason the compromise was made and what would remove it.
+- Formal register. Sentences may be long and subordinate when the qualification belongs in the sentence; connectives such as *thus*, *furthermore*, and *however* are welcome. No marketing voice, no superlatives, no closing flourish.
+- Prefer concrete categories and named things to narrative. "Enterprise IT, automotive, and defense industries," not "a varied career in industry." Name functions, identifiers, datasets, and versions exactly: `prcomp()`, `GraphConv()`, Reactome:R-HSA-381750.
+- Abbreviations are acceptable where the reader will recognize them: U. Hawaii, HI, GNN, ARI.
+- First person. Singular for this repository's own documents, plural in co-authored work.
+- Numbers carry units and a source. Cite inline.
+- When editing my prose, cut rather than add. Do not append summary sentences or transitions I did not write.
 
 ### Code
 
