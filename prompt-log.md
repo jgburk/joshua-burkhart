@@ -52,3 +52,4 @@ From 2026-09-29 on, entries follow the course's prompt-log table; the entries ab
 | Date | Tool | What I asked | What I got | What I did with it |
 |---|---|---|---|---|
 | 2026-09-29 | Claude Code (Opus 5.5) | Align `prompt-log.md` with the course's table format | A choice between converting the four past entries to rows or starting the table here, then this section and row | Started the table here and left past entries untouched, so the never-edit rule in `AGENTS.md` holds; nothing to correct |
+| 2026-09-29 | Claude Code (Opus 5.5) | Check Stage 1 completeness against the stage page, then re-lint my revisions | Checklist review flagging feasibility-only falsification and numbers in the problem statement; lint of each revision, including a trial givens block I later removed | Added an optimality condition to "How I would know I was wrong"; tried and removed a restatement of the case givens under "The problem"; hypothesis and mix unchanged |
