@@ -21,6 +21,8 @@ Give a full walk-through. Explain the approach before the result, name the alter
 - Any biographical, career, or publication fact that is not in a source I provided. If a slot is empty, leave `<!-- TODO -->` and tell me.
 - A capability, an engagement, or a data source that does not exist yet.
 - Every statistic or figure the assistant gives me is a draft until I verify it against a source.
+- Until an engagement's brief is committed, do not compute, estimate, or model anything
+  for that engagement — no optimal values, no marginal costs, no workbook, no spec.
 
 ## What must never be pasted into a model
 
@@ -65,6 +67,12 @@ Voice reference: Burkhart et al., "Biology-inspired graph neural network encodes
 - Graded files use the exact filename the stage brief gives — lowercase, hyphens, no spaces. Some courses date-stamp (YYYY-MM-DD-lastname-slug.md); the stage page says so when they do.
 - Slugs name the engagement, never the week, the course, or the assignment number.
 - Never invent a path or a filename. I will give you the exact one.
+
+### Why the Naming section is left as-is
+The Naming section above is copied word for word from the course baseline, which the
+setup standard requires. It contains the word "week" (in the rule that slugs never name
+the week), and the setup check flags that word. Leave it: the rule forbids week-named
+files; it is not one. Do not edit or reword the Naming section to silence the check.
 
 ## Repository rules
 
