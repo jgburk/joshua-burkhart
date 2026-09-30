@@ -44,3 +44,11 @@ A running record of AI sessions that mattered. An entry is logged when a session
 **What I did with it.** Accepted and acted on: I stated four assumptions (planting all 64 beds is best; revenue matters more than profit; the farm sells everything it grows; and no crop loss, full process efficiency, and no taxes), removed the "without knowing the market prices" and name-recognition claims from the body and the frontmatter, and added a note on how I would approach the problem professionally; committed as `7a862c7`. Left unchanged: the mesclun revenue-per-bed and fertilizer claims, the reasoning for tomatoes and carrots at their caps, the 20 / 20 / 24 mix, and the falsification test. I did not state reasons for these decisions. The hypothesized mix did not change.
 
 **What was wrong and how it was caught.** The plan called for the critique in a fresh session so the critic would not have seen the lint discussion; I chose to run it in this session, so the critic had seen my drafts and the lint results. Before the brief's first commit, the assistant's lint report also advised me to reread the givens table against my own claims, which goes beyond a pass/fail lint and anticipates the critique; recorded here rather than silently accepted.
+
+## Entries in the course format
+
+From 2026-09-29 on, entries follow the course's prompt-log table; the entries above keep their original section format because past entries are never edited. What was wrong and how it was caught goes in the last column.
+
+| Date | Tool | What I asked | What I got | What I did with it |
+|---|---|---|---|---|
+| 2026-09-29 | Claude Code (Opus 5.5) | Align `prompt-log.md` with the course's table format | A choice between converting the four past entries to rows or starting the table here, then this section and row | Started the table here and left past entries untouched, so the never-edit rule in `AGENTS.md` holds; nothing to correct |
