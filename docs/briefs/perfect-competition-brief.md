@@ -29,4 +29,4 @@ Mesclun appears expensive to grow with low revenue per bed and high fertilizer p
 
 ## How I would know I was wrong
 
-I would know I was wrong if my budget, labor, or other constraints for the project prevented me from planting all 64 beds in my hypothesized optimal arrangement.
+I would know I was wrong if my budget, labor, or other constraints for the project prevented me from planting all 64 beds in my hypothesized optimal arrangement. I would also know I was wrong if I set up the system of linear equations and it turned out revenue-optimal solutions to the planting arrangement differed from the one I proposed.
