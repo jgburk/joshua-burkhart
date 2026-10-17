@@ -134,3 +134,5 @@ Profit	$42,761.66
 | Check figures | Beds 10/20/30; profit $42,761.66 against $42,762 (tolerance $1) | Everything else, in aggregate |
 | Break a check on purpose: price_t 8800 → 9800 (not saved) | Profit check turned FALSE; restored to 8800, back to TRUE | Functions are responding to new parameter values |
 | Farm Profit Lab cross-check at 10/20/30 | Lab labor hours 5,277 vs model 5,277.2; lab labor cost $104,118 vs model $104,118; lab profit $42,762 vs model $42,761.66; lab "+1 tomato bed" −$591 | Functions don't have obvious bugs |
+| Standalone P = MC crossings | Schedules sheet: tomatoes 10, carrots 10, mesclun 6 (cross_t / cross_c / cross_m), within ±1 of 10 / 10 / 6 | Incorrect data entry |
+| Tomato MC dip (noted for Stage 3) | Tomato MC falls from $7,661 at q = 5 to $4,906 at q = 6; carrots dip at 16 → 17, mesclun at 13 → 14 | Not explained here; Stage 3 |
