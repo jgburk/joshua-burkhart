@@ -125,3 +125,4 @@ Profit	$42,761.66
 | q = 1 by hand: 1 × 2.5 × 36 × 1.10 | Model shows 99.0 hours; hand value 99.0 | A dropped exponent, which is the single most common structural defect and invisible downstream |
 | Solver from 20/0/0 and from 0/0/0 | Both returned 10/20/30 and $42,761.66 | A local optimum masquerading as the answer |
 | Check figures | Beds 10/20/30; profit $42,761.66 against $42,762 (tolerance $1) | Everything else, in aggregate |
+| Break a check on purpose: price_t 8800 → 9800 (not saved) | Profit check turned FALSE; restored to 8800, back to TRUE | Functions are responding to new parameter values |
