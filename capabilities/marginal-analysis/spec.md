@@ -126,3 +126,4 @@ Profit	$42,761.66
 | Solver from 20/0/0 and from 0/0/0 | Both returned 10/20/30 and $42,761.66 | A local optimum masquerading as the answer |
 | Check figures | Beds 10/20/30; profit $42,761.66 against $42,762 (tolerance $1) | Everything else, in aggregate |
 | Break a check on purpose: price_t 8800 → 9800 (not saved) | Profit check turned FALSE; restored to 8800, back to TRUE | Functions are responding to new parameter values |
+| Farm Profit Lab cross-check at 10/20/30 | Lab labor hours 5,277 vs model 5,277.2; lab labor cost $104,118 vs model $104,118; lab profit $42,762 vs model $42,761.66; lab "+1 tomato bed" −$591 | Functions don't have obvious bugs |
