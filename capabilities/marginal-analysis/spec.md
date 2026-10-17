@@ -40,7 +40,10 @@ This model decides how many beds to plant for each crop, in order to maximize pr
 
 ## Structure
 
-<!-- TODO: each sheet or region and what it is for. -->
+Two sheets, `Model` and `Schedules`.
+
+- `Model` — INPUTS (farm): the farm givens and derived rates; INPUTS (crops): caps, prices, hours, fertilizer, and diminishing returns per crop; DECISION: the three bed counts Solver changes and `beds_total`; LABOR: hours per crop, owner and temp hours, temp workers, labor cost, blended rate; FARM P&L: revenue, fertilizer, and labor cost per crop; PROFIT: `profit_total`, the Solver objective; CHECKS: each validation rule as a TRUE/FALSE cell, green or red, and `all_checks`; SOLVER MODEL: the saved Solver setup.
+- `Schedules` — one standalone VC, MC, and AVC table per crop from q = 0 to its cap, with the crossing cells `cross_t`, `cross_c`, `cross_m`.
 
 ## Calculation logic
 
@@ -91,47 +94,25 @@ temp_workers <= temp_max; GRG Nonlinear, Integer Optimality 0%.
 - ABS(profit_total − 42762) <= $1
 - ABS(labor_hrs_t at q=1 − 99.0) <= .01 hours
 - Every constraint check is TRUE; no error cells.
+- Every calculated cell contains a formula, not a pasted value.
 - Standalone crossing (last q before MC_x first exceeds price_x): ABS(crossing − 10 / 10 / 6) <= 1 bed
 
 ## Outputs
 
-Tomatoes beds	10
-Carrots beds	20
-Mesclun beds	30
-Beds planted	60
-	
-LABOR	
-Tomatoes labor hours	2,334.4
-Carrots labor hours	983.2
-Mesclun labor hours	1,959.7
-Total hours	5,277.2
-Owner hours used	720.0
-Temp hours	4,557.2
-Temp workers	3.16
-Labor cost	$104,118
-Blended rate	$19.73
-	
-FARM P&L	
-Tomatoes revenue	$88,000
-Tomatoes fertilizer	$8,800
-Tomatoes labor cost	$46,057
-Carrots revenue	$41,880
-Carrots fertilizer	$8,800
-Carrots labor cost	$19,398
-Mesclun revenue	$81,000
-Mesclun fertilizer	$26,400
-Mesclun labor cost	$38,664
-	
-PROFIT (Solver objective)	
-Profit	$42,761.66
+- `q_tomato`, `q_carrot`, `q_mesclun`, `beds_total` — the optimal mix
+- `profit_total` — season profit
+- `labor_hrs_t`, `labor_hrs_c`, `labor_hrs_m`, `total_hrs`, `perm_used`, `temp_hrs`, `temp_workers`, `labor_cost`, `blended_rate`
+- `revenue_x`, `fert_cost_x`, `labor_cost_x` for each crop
+- `VC_x(q)`, `MC_x(q)`, `AVC_x(q)` schedules and `cross_t`, `cross_c`, `cross_m`
+- `all_checks` — TRUE when every validation rule passes
 
 ## Audit findings
 
 | Check | What I found | What it would have caught |
 |---|---|---|
-| q = 1 by hand: 1 × 2.5 × 36 × 1.10 | Model shows 99.0 hours; hand value 99.0 | A dropped exponent, which is the single most common structural defect and invisible downstream |
-| Solver from 20/0/0 and from 0/0/0 | Both returned 10/20/30 and $42,761.66 | A local optimum masquerading as the answer |
-| Check figures | Beds 10/20/30; profit $42,761.66 against $42,762 (tolerance $1) | Everything else, in aggregate |
+| q = 1 by hand: 1 × 2.5 × 36 × 1.10 | Model shows 99.0 hours; hand value 99.0 | "A dropped exponent, which is the single most common structural defect and invisible downstream" (Stage 2 page) |
+| Solver from 20/0/0 and from 0/0/0 | Both returned 10/20/30 and $42,761.66 | "A local optimum masquerading as the answer" (Stage 2 page) |
+| Check figures | Beds 10/20/30; profit $42,761.66 against $42,762 (tolerance $1) | "Everything else, in aggregate" (Stage 2 page) |
 | Break a check on purpose: price_t 8800 → 9800 (not saved) | Profit check turned FALSE; restored to 8800, back to TRUE | Functions are responding to new parameter values |
 | Farm Profit Lab cross-check at 10/20/30 | Lab labor hours 5,277 vs model 5,277.2; lab labor cost $104,118 vs model $104,118; lab profit $42,762 vs model $42,761.66; lab "+1 tomato bed" −$591 | Functions don't have obvious bugs |
 | Standalone P = MC crossings | Schedules sheet: tomatoes 10, carrots 10, mesclun 6 (cross_t / cross_c / cross_m), within ±1 of 10 / 10 / 6 | Incorrect data entry |
