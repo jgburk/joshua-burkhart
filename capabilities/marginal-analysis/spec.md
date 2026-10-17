@@ -44,8 +44,29 @@ This model decides how many beds to plant for each crop, in order to maximize pr
 
 ## Calculation logic
 
-Labor(q) = q × hrs/wk/bed × 36 × (1 + dim)^q
-max_temp_workers=4
+```
+q_tomato, q_carrot, q_mesclun = beds planted (decision cells, whole numbers)
+
+labor_hrs_t = q_tomato  × hrs_t × weeks × (1 + dim_t)^q_tomato
+labor_hrs_c = q_carrot  × hrs_c × weeks × (1 + dim_c)^q_carrot
+labor_hrs_m = q_mesclun × hrs_m × weeks × (1 + dim_m)^q_mesclun
+total_hrs   = labor_hrs_t + labor_hrs_c + labor_hrs_m
+
+perm_used    = MIN(total_hrs, perm_field_hrs)
+temp_hrs     = MAX(0, total_hrs − perm_field_hrs)
+temp_workers = temp_hrs ÷ temp_hrs_per_worker
+labor_cost   = perm_used × perm_rate + temp_hrs × temp_rate
+blended_rate = IF(total_hrs = 0, 0, labor_cost ÷ total_hrs)
+labor_cost_x = labor_hrs_x × blended_rate          (each crop)
+
+revenue_x    = q_x × price_x                        (each crop)
+fert_cost_x  = q_x × fert_x                         (each crop)
+profit_total = Σ revenue_x − labor_cost − Σ fert_cost_x − fixed_cost
+
+Solver: maximize profit_total by changing q_tomato, q_carrot, q_mesclun;
+q_x <= cap_x, q_x integer, q_tomato + q_carrot + q_mesclun <= beds_max,
+temp_workers <= temp_max; GRG Nonlinear, Integer Optimality 0%.
+```
 
 ## Conventions
 
