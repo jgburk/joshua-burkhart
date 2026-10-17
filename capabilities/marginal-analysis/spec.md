@@ -3,8 +3,8 @@ type: spec
 capability: marginal-analysis
 engagement: perfect-competition
 date: 2026-10-16
-status: draft            # draft | built | audited
-built_with: "<!-- TODO: tool used to build model.xlsx -->"
+status: audited     # draft | built | audited
+built_with: openpyxl script by Claude Code from this file; solved with Excel Solver (GRG Nonlinear)
 ---
 
 # Marginal analysis — model specification
@@ -63,6 +63,12 @@ revenue_x    = q_x × price_x                        (each crop)
 fert_cost_x  = q_x × fert_x                         (each crop)
 profit_total = Σ revenue_x − labor_cost − Σ fert_cost_x − fixed_cost
 
+Marginal-cost schedules, one per crop, q = 0 to cap_x, each crop planted alone:
+VC_x(q)  = MIN(H, perm_field_hrs) × perm_rate + MAX(0, H − perm_field_hrs) × temp_rate + q × fert_x,
+           where H = q × hrs_x × weeks × (1 + dim_x)^q
+MC_x(q)  = VC_x(q) − VC_x(q − 1)
+AVC_x(q) = VC_x(q) ÷ q   (blank at q = 0)
+
 Solver: maximize profit_total by changing q_tomato, q_carrot, q_mesclun;
 q_x <= cap_x, q_x integer, q_tomato + q_carrot + q_mesclun <= beds_max,
 temp_workers <= temp_max; GRG Nonlinear, Integer Optimality 0%.
@@ -85,6 +91,7 @@ temp_workers <= temp_max; GRG Nonlinear, Integer Optimality 0%.
 - ABS(profit_total − 42762) <= $1
 - ABS(labor_hrs_t at q=1 − 99.0) <= .01 hours
 - Every constraint check is TRUE; no error cells.
+- Standalone crossing (last q before MC_x first exceeds price_x): ABS(crossing − 10 / 10 / 6) <= 1 bed
 
 ## Outputs
 
