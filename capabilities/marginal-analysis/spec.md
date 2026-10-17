@@ -11,7 +11,7 @@ built_with: "<!-- TODO: tool used to build model.xlsx -->"
 
 ## Purpose
 
-This model decides how many beds to plant for each crop, in order to maximize profits.
+This model decides how many beds to plant for each crop, in order to maximize profits. The model uses constraints and cost functions and solves an optimization problem to find the best answer.
 
 ## Inputs — the named contract
 
@@ -71,11 +71,13 @@ temp_workers <= temp_max; GRG Nonlinear, Integer Optimality 0%.
 ## Conventions
 
 - The $20,000 is a fixed cost.
-- 720 hours are used first owner's.
+- The owner's 720 field hours are used before any temporary hours.
 - Each crop's labor cost = its hours × the blended rate.
 - Bed counts must be whole numbers: yes.
 - Temp workers may be fractional: yes.
 - At zero hours, the blended rate is 0
+
+- I used the excel solver for this problem.
 
 ## Validation rules
 
@@ -86,8 +88,40 @@ temp_workers <= temp_max; GRG Nonlinear, Integer Optimality 0%.
 
 ## Outputs
 
-<!-- TODO: each result the model reports, by name. -->
+Tomatoes beds	10
+Carrots beds	20
+Mesclun beds	30
+Beds planted	60
+	
+LABOR	
+Tomatoes labor hours	2,334.4
+Carrots labor hours	983.2
+Mesclun labor hours	1,959.7
+Total hours	5,277.2
+Owner hours used	720.0
+Temp hours	4,557.2
+Temp workers	3.16
+Labor cost	$104,118
+Blended rate	$19.73
+	
+FARM P&L	
+Tomatoes revenue	$88,000
+Tomatoes fertilizer	$8,800
+Tomatoes labor cost	$46,057
+Carrots revenue	$41,880
+Carrots fertilizer	$8,800
+Carrots labor cost	$19,398
+Mesclun revenue	$81,000
+Mesclun fertilizer	$26,400
+Mesclun labor cost	$38,664
+	
+PROFIT (Solver objective)	
+Profit	$42,761.66
 
 ## Audit findings
 
-<!-- Added after the build: for each check, what you checked, what you found, what you did. -->
+| Check | What I found | What it would have caught |
+|---|---|---|
+| q = 1 by hand: 1 × 2.5 × 36 × 1.10 | Model shows 99.0 hours; hand value 99.0 | A dropped exponent, which is the single most common structural defect and invisible downstream |
+| Solver from 20/0/0 and from 0/0/0 | Both returned 10/20/30 and $42,761.66 | A local optimum masquerading as the answer |
+| Check figures | Beds 10/20/30; profit $42,761.66 against $42,762 (tolerance $1) | Everything else, in aggregate |
