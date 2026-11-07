@@ -61,13 +61,13 @@ From 2026-09-29 on, entries follow the course's prompt-log table; the entries ab
 
 | Date | Tool | What I asked | What I got | What I did with it |
 |---|---|---|---|---|
-| 2026-11-06 | Claude Code (Opus 5.5) | Review the Stage 3 page and walk through a strategy, then automate as much as possible and leave me a short plan | A strategy; an `Analysis` sheet and three native charts in `model.xlsx`, recalculated and saved through Excel; an exhaustive search for the scenario plans; `spec.md` wording for the sheet; three exported figures; placeholder analysis and memo files with cell notes; index updates; the `AGENTS.md` logging line | <!-- TODO: mine --> |
-| 2026-11-06 | Claude Code (Opus 5.5) | Stop re-solving bed counts and run with the Stage 2 result | `Analysis` scenarios rebuilt to hold 10/20/30, the search-based plans and cap + 1 rows removed, `spec.md` and the placeholder notes updated | <!-- TODO: mine --> |
+| 2026-11-06 | Claude Code (Opus 5.5) | Review the Stage 3 page and walk through a strategy, then automate as much as possible and leave me a short plan | A strategy; an `Analysis` sheet and three native charts in `model.xlsx`, recalculated and saved through Excel; an exhaustive search for the scenario plans; `spec.md` wording for the sheet; three exported figures; placeholder analysis and memo files with cell notes; index updates; the `AGENTS.md` logging line | I kept the analysis sheet and wrote the analysis and memo myself. I let Claude Opus 5.5 (high) prompt me and work through the assignment step-by-step. |
+| 2026-11-06 | Claude Code (Opus 5.5) | Stop re-solving bed counts and run with the Stage 2 result | `Analysis` scenarios rebuilt to hold 10/20/30, the search-based plans and cap + 1 rows removed, `spec.md` and the placeholder notes updated | Stage 2 was submitted and the grader gave it 100%. Stage 3 is more about moving forward with calculations, rather than redoing work from Stage 2. I assumed there was some oversight made by the coding agent's line of thought and redirected it to continue with the results from Stage 2. |
 
 ### Errors caught
 
-<!-- TODO: mine: the original claim, my check, the correction; or the checks that came back clean. -->
+The coding agent wanted to go back and redo work from Stage 2 and I had to redirect it to move forward with Stage 3 instead of burn tokens unnecessarily.
 
 ### Reflection
 
-<!-- TODO: mine, 300 words or fewer, naming a concrete check. Never AI-touched. -->
+AI helped me with a lot of the technical steps of the project, to the point that I could point claude code to the assignment github page and it would walk me through which sections it was allowed to automate and which I had to complete myself. I used Claude Opus 5.5 (high) for this assignment. The agent did burn tokens and go off in directions regarding corrections and redoing old work that I found wasteful. I think I could usually catch this within one or two prompts and redirect it. The hand check for hours = q x hours per week x 36 weeks x (1 + 10%)^q matched (99).

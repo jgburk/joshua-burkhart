@@ -3,26 +3,24 @@ type: memo
 engagement: perfect-competition
 capability: marginal-analysis
 date: 2026-11-06
-audience: "TODO"
-recommendation: "TODO"
+audience: "Joshua G. Burkhart"
+recommendation: "10 tomato, 20 carrot, 30 mesclun beds"
 evidence: analysis/2026-11-06-perfect-competition-analysis.md
 ---
 
 # Perfect competition — recommendation
 
-**Recommendation.** <!-- TODO: one sentence with beds per crop that a non-economist would accept. -->
+**Recommendation.** Plant 10 Tomato Beds, 20 Carrot Beds, and 30 Mesclun Beds to maximize profit.
 
 ## Why
 
-<!-- TODO: two or three reasons, each pointing at a number in the analysis. -->
+Bed 11 for Tomato costs too much. 20 Carrots are the maximum we can plant. 30 Mescluns are the maximum we can plant.
 
 ## The judgment call
 
-<!-- TODO: which binding constraint to relax first, which ground to buy, and what a bed of it is worth.
-Evidence: Analysis!J6 $352.49 carrot; Analysis!J7 $246.47 mesclun; beds_max slack Analysis!D14 4.
-The case page places whole-worker seasons here: Analysis row 41, $21,880 at 10/20/30. -->
+We would expand Carrot first ($352.49 per bed vs Mesclun @ $246.47)
+If temps need to be paid for the entire season, profit for the 10/20/30 plan would drop to $21,880 but that's still profitable. So we'd still plant it.
 
 ## What would change my answer
 
-<!-- TODO: one line naming the most sensitive variable.
-Profit change at 10/20/30, Analysis column U: tomato price -20% row 35 -$17,600; carrot price -20% row 36 -$8,376; mesclun price -20% row 37 -$16,200; temp pay -20% row 38 +$15,823.67; temp pay +20% row 39 -$15,823.67. -->
+Tomato price went down 20% would change my answer because it would result in -$17,600 in profit

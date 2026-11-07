@@ -11,41 +11,41 @@ model: capabilities/marginal-analysis/model.xlsx
 
 <!-- TODO: One to two pages, in your words. Headings state the finding. Cite cells. The notes below are workbook values, not conclusions; say "finish" when done and the assistant removes them. -->
 
-## TODO: the finding on where the money crop stops
+## Tomato Bed Limit
 
-<!-- TODO. Evidence:
-Revenue per bed: Model!B19 $8,800; B24 $2,094; B29 $2,700. Tomato beds: Model!B35 10; cap Model!B18 20.
-Tomato MC: Schedules!D15 $8,248.59 at bed 10; Schedules!D16 $9,390.72 at bed 11. P - MC: Analysis!H5 $551.41 last bed; Analysis!J5 -$590.72 next bed. Farm Profit Lab: -$591 (Analysis!B47).
-Plan hours: Model!B44 5,277.22, against owner hours Model!B10 720.
-Plant-alone MC against price: carrots above at beds 11-16, below at 17-20; mesclun above at 7-13, below at 14-30 (Schedules columns D and F). First crossings: Analysis!C26:C28 10 / 10 / 6. Refer to the figure in your text.
--->
+Tomatoes earn the most per bed ($8,800 vs $2,700 and $2,094) but only 10 of 20 beds get planted. The cost per bed increases at the 11th bed to the point that it outweighs the price.
+Bed 10 costs $8,248.59 so price minus MC is $551.41.
+Bed 11 would be $9,390.72 so price minus MC is -$590.72.
+The model stops at 10 beds because the cost of an eleventh bed would outweigh price.
 
 ![Tomato marginal cost against price](figures/2026-11-06-perfect-competition-tomato-mc.png)
 
-## TODO: the finding on which constraints bind and what relaxing each is worth
+## Carrot and Mesclun Maximally Planted
 
-<!-- TODO. Evidence:
-Constraint table: Analysis!A11:G16 (used, limit, slack, status, value of one more unit).
-Carrots: MC at cap Schedules!D50 $1,688.95; P - MC Analysis!H6 $405.05; next bed Analysis!J6 $352.49.
-Mesclun: MC at cap Schedules!D85 $2,420.10; P - MC Analysis!H7 $279.90; next bed Analysis!J7 $246.47.
-Slack at the plan: tomato cap Analysis!D11 10 beds; beds available Analysis!D14 4 beds; temp workers Analysis!D15 0.84.
-The values above come from the next-bed test, holding the Stage 2 plan; Solver's Sensitivity report was not run.
--->
+Both Carrot and Mesclun were planted in 20/20 and 30/30 beds, respectively.
+The price of carrot is $2,094, MC is $1,688.95
+The price of mesclun is $2,700, MC is $2,420.10
+The cap is what stops us from planting more of each crop.
+If we planted another bed of each, Carrot would be $352.49 (+ profit) and Mesclun would be $246.47 (+ profit).
+Tomato cap: 10 of 20
+Total beds: 60 of 64
+Temp workers 3.16 of 4
+Adding more of any of them adds $0 because they are slack.
 
-## TODO: the finding on why marginal cost falls
+## Marginal cost falls because hours cost $17.36 from temp workers after using all the owner's hours at $34.72.
 
-<!-- TODO. Evidence, Analysis!A20:J22. Refer to the figures in your text.
-Tomatoes: bed 4 / 5 / 6 hours added 167.71 / 197.65 / 231.91; MC $6,703.12 / $7,660.86 / $4,906.28; temp hours in bed 5: 4.73.
-Carrots: bed 16 / 17 / 18 hours added 60.83 / 63.46 / 66.19; MC $2,552.10 / $1,670.90 / $1,589.14; temp hours in bed 17: 56.03.
-Mesclun: bed 13 / 14 / 15 hours added 60.72 / 62.14 / 63.59; MC $2,988.40 / $2,522.58 / $1,983.96; temp hours in bed 14: 29.67.
-Rates: Model!B11 perm_rate $34.72; Model!B15 temp_rate $17.36.
--->
+-Tomato: 5-6 ($7,661 to $4,906)
+Carrots: 16-18 ($2,552 to $1,589)
+Mesclun: 13-15 ($2,988 to $1,984)
+
+1. The physical returns did not improve. The cost just decreased.
+2. MC reflects all the material, supplies, and labor. What changed was the price of the wage.
 
 ![Carrot marginal cost against price](figures/2026-11-06-perfect-competition-carrot-mc.png)
 
 ![Mesclun marginal cost against price](figures/2026-11-06-perfect-competition-mesclun-mc.png)
 
-## TODO: the finding on whether each crop would make money alone
+## Only Tomato Makes Money Alone
 
 <!-- TODO. Evidence, Analysis!A26:O30.
 Best plant-alone q and profit after the $20,000: tomatoes 10, $6,172.77 (G26); carrots 20, -$16,488.92 (G27); mesclun 30, -$11,922.19 (G28).
@@ -53,7 +53,15 @@ At plan beds, P - AVC / P - ATC: tomatoes $2,617.28 / $617.28; carrots $175.55 /
 Contribution in the plan: O26 $33,143.42; O27 $13,682.27; O28 $15,935.98; O29 $62,761.66; less fixed cost O30 $42,761.66.
 -->
 
-## TODO: the finding on the Stage 1 hypothesis
+Tomato would make money alone but Carrot and Mesclun would lose money.
+The 20K isn't the issue. It's owed whether or not another bed is planted.
+Price is above avc for carrot and meslcun. Each bed pays for itself with extra toward the 20K.
+
+## Limitations
+
+The temps are hourly. If they have to be paid for the whole season, profit for the 10/20/30 split goes down from $42,761.66 to $21,880. That means the profit number has a large variance, depending on a single factor.
+
+## Tomato, Mesclun, Total Count Mistakes
 
 <!-- TODO. Evidence:
 Brief: 20 / 20 / 24, all 64 beds, mesclun as the crop to reduce (docs/briefs/perfect-competition-brief.md).
@@ -61,10 +69,7 @@ Model: Model!B35:B38 10 / 20 / 30, 60 beds; Model!B63 $42,761.66.
 Brief's mix held fixed, Analysis row 42: 14,547.81 hours; 9.60 temp workers against a limit of 4; feasible FALSE; profit -$49,906.13.
 -->
 
-## TODO: the limitations
-
-<!-- TODO. Evidence:
-Whole-worker seasons at 10/20/30: Analysis row 41, $21,880.
-Non-field owner pay ($25,000) is outside profit_total: Analysis row 40, $17,761.66.
-Scenario rows hold the Stage 2 plan, so they show profit at 10/20/30 and not how the beds would respond.
--->
+I predicted 20/20/24 vs 10/20/30 on 60 beds.
+Bed 11 cost too much for tomato. So we won't plant more than 10.
+I assumed all beds should be planted. That wasn't true because of the way the costs built up. 60 were best.
+I also thought mesclun wouldn't be planted as much (24 vs 30) due to high fertilizer cost. this turned out to be incorrect. Mesclun's price stays above MC up to 30 beds+ in the combined plan.
