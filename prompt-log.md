@@ -62,6 +62,7 @@ From 2026-09-29 on, entries follow the course's prompt-log table; the entries ab
 | Date | Tool | What I asked | What I got | What I did with it |
 |---|---|---|---|---|
 | 2026-11-06 | Claude Code (Opus 5.5) | Review the Stage 3 page and walk through a strategy, then automate as much as possible and leave me a short plan | A strategy; an `Analysis` sheet and three native charts in `model.xlsx`, recalculated and saved through Excel; an exhaustive search for the scenario plans; `spec.md` wording for the sheet; three exported figures; placeholder analysis and memo files with cell notes; index updates; the `AGENTS.md` logging line | <!-- TODO: mine --> |
+| 2026-11-06 | Claude Code (Opus 5.5) | Stop re-solving bed counts and run with the Stage 2 result | `Analysis` scenarios rebuilt to hold 10/20/30, the search-based plans and cap + 1 rows removed, `spec.md` and the placeholder notes updated | <!-- TODO: mine --> |
 
 ### Errors caught
 
