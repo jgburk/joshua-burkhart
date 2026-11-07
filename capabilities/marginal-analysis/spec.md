@@ -40,10 +40,11 @@ This model decides how many beds to plant for each crop, in order to maximize pr
 
 ## Structure
 
-Two sheets, `Model` and `Schedules`.
+Three sheets, `Model`, `Schedules`, and `Analysis`.
 
 - `Model` — INPUTS (farm): the farm givens and derived rates; INPUTS (crops): caps, prices, hours, fertilizer, and diminishing returns per crop; DECISION: the three bed counts Solver changes and `beds_total`; LABOR: hours per crop, owner and temp hours, temp workers, labor cost, blended rate; FARM P&L: revenue, fertilizer, and labor cost per crop; PROFIT: `profit_total`, the Solver objective; CHECKS: each validation rule as a TRUE/FALSE cell, green or red, and `all_checks`; SOLVER MODEL: the saved Solver setup.
 - `Schedules` — one standalone VC, MC, and AVC table per crop from q = 0 to its cap, with the crossing cells `cross_t`, `cross_c`, `cross_m`.
+- `Analysis` — Stage 3 evidence, added without changing `Model` or `Schedules`: next-bed test, constraint table, MC dip, plant-alone summary, scenarios, `analysis_checks`, plant-alone tables with ATC, and one MC-against-price chart per crop.
 
 ## Calculation logic
 
@@ -75,6 +76,22 @@ AVC_x(q) = VC_x(q) ÷ q   (blank at q = 0)
 Solver: maximize profit_total by changing q_tomato, q_carrot, q_mesclun;
 q_x <= cap_x, q_x integer, q_tomato + q_carrot + q_mesclun <= beds_max,
 temp_workers <= temp_max; GRG Nonlinear, Integer Optimality 0%.
+
+Analysis sheet:
+L(T)           = MIN(T, perm_field_hrs) × perm_rate + MAX(0, T − perm_field_hrs) × temp_rate
+H_x(q)         = q × hrs_x × weeks × (1 + dim_x)^q
+MC_last_x      = labor_cost − L(total_hrs − H_x(q_x) + H_x(q_x − 1)) + fert_x
+MC_next_x      = L(total_hrs − H_x(q_x) + H_x(q_x + 1)) − labor_cost + fert_x
+next_bed_x     = price_x − MC_next_x
+ATC_x(q)       = AVC_x(q) + fixed_cost ÷ q
+contribution_x(q) = q × price_x − VC_x(q)          (planted alone)
+contribution_plan_x = revenue_x − fert_cost_x − labor_cost_x
+
+Scenario row: each row overrides inputs and holds a plan q_t, q_c, q_m.
+labor = MIN(H, perm_field_hrs) × perm_rate + temp_cost, where H is the row's total hours and
+temp_cost = MAX(0, H − perm_field_hrs) × temp_pay ÷ temp_hrs_per_worker, or, for whole-worker rows,
+ROUNDUP(temp_workers) × temp_pay
+Plan = the profit-maximizing whole-bed mix found by testing every feasible mix under the row's inputs.
 ```
 
 ## Conventions
@@ -96,6 +113,8 @@ temp_workers <= temp_max; GRG Nonlinear, Integer Optimality 0%.
 - Every constraint check is TRUE; no error cells.
 - Every calculated cell contains a formula, not a pasted value.
 - Standalone crossing (last q before MC_x first exceeds price_x): ABS(crossing − 10 / 10 / 6) <= 1 bed
+- `analysis_checks` is TRUE: the base scenario and the plan contributions each reproduce `profit_total` within $0.01; one more tomato bed matches the Farm Profit Lab's −$591 within $1; each cap + 1 scenario equals its next-bed test within $0.01; every searched plan is feasible.
+- Scenario plan cells and whole-worker flags are the only typed values on `Analysis`.
 
 ## Outputs
 
@@ -105,6 +124,7 @@ temp_workers <= temp_max; GRG Nonlinear, Integer Optimality 0%.
 - `revenue_x`, `fert_cost_x`, `labor_cost_x` for each crop
 - `VC_x(q)`, `MC_x(q)`, `AVC_x(q)` schedules and `cross_t`, `cross_c`, `cross_m`
 - `all_checks` — TRUE when every validation rule passes
+- `MC_last_x`, `MC_next_x`, `next_bed_x`, `ATC_x(q)`, `contribution_x(q)`, `contribution_plan_x`, scenario plans and profits, and `analysis_checks`
 
 ## Audit findings
 
