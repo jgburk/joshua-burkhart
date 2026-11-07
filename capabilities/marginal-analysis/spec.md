@@ -87,11 +87,11 @@ ATC_x(q)       = AVC_x(q) + fixed_cost ÷ q
 contribution_x(q) = q × price_x − VC_x(q)          (planted alone)
 contribution_plan_x = revenue_x − fert_cost_x − labor_cost_x
 
-Scenario row: each row overrides inputs and holds a plan q_t, q_c, q_m.
+Scenario row: each row overrides inputs and holds the Stage 2 plan; bed counts are not re-solved.
 labor = MIN(H, perm_field_hrs) × perm_rate + temp_cost, where H is the row's total hours and
 temp_cost = MAX(0, H − perm_field_hrs) × temp_pay ÷ temp_hrs_per_worker, or, for whole-worker rows,
 ROUNDUP(temp_workers) × temp_pay
-Plan = the profit-maximizing whole-bed mix found by testing every feasible mix under the row's inputs.
+The last row holds the brief's 20 / 20 / 24 mix for comparison and is the only row outside the plan.
 ```
 
 ## Conventions
@@ -113,8 +113,8 @@ Plan = the profit-maximizing whole-bed mix found by testing every feasible mix u
 - Every constraint check is TRUE; no error cells.
 - Every calculated cell contains a formula, not a pasted value.
 - Standalone crossing (last q before MC_x first exceeds price_x): ABS(crossing − 10 / 10 / 6) <= 1 bed
-- `analysis_checks` is TRUE: the base scenario and the plan contributions each reproduce `profit_total` within $0.01; one more tomato bed matches the Farm Profit Lab's −$591 within $1; each cap + 1 scenario equals its next-bed test within $0.01; every searched plan is feasible.
-- Scenario plan cells and whole-worker flags are the only typed values on `Analysis`.
+- `analysis_checks` is TRUE: the Stage 2 plan row and the plan contributions each reproduce `profit_total` within $0.01; one more tomato bed matches the Farm Profit Lab's −$591 within $1; the Stage 2 plan rows are feasible.
+- Whole-worker flags and the brief's mix are the only typed values on `Analysis`.
 
 ## Outputs
 
@@ -124,7 +124,7 @@ Plan = the profit-maximizing whole-bed mix found by testing every feasible mix u
 - `revenue_x`, `fert_cost_x`, `labor_cost_x` for each crop
 - `VC_x(q)`, `MC_x(q)`, `AVC_x(q)` schedules and `cross_t`, `cross_c`, `cross_m`
 - `all_checks` — TRUE when every validation rule passes
-- `MC_last_x`, `MC_next_x`, `next_bed_x`, `ATC_x(q)`, `contribution_x(q)`, `contribution_plan_x`, scenario plans and profits, and `analysis_checks`
+- `MC_last_x`, `MC_next_x`, `next_bed_x`, `ATC_x(q)`, `contribution_x(q)`, `contribution_plan_x`, scenario profits at the held plan, and `analysis_checks`
 
 ## Audit findings
 
