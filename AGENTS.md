@@ -85,6 +85,7 @@ files; it is not one. Do not edit or reword the Naming section to silence the ch
 ## Standing rules
 
 - At the end of every session that changed a file, append one entry to prompt-log.md: the date, what I asked, what you produced, what was wrong and how it was caught. Never backfill earlier sessions and never edit a past entry.
+- On graded work, the assistant's part of that entry is facts only: the date, the tool, what I asked, and what it produced. What was wrong, how I verified, and the reflection are mine to write, as the Stage 3 page requires.
 - The assistant prints any file that affects publication (`.gitignore`, collaborator settings, visibility) before applying it.
 - Commit messages say what changed and why. "Initial commit", "update", and "fix" are not acceptable messages.
 - Do the work I asked for. If you notice something worth doing that I did not ask for, tell me instead of doing it.
