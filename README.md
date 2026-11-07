@@ -10,7 +10,7 @@ This repository is my portfolio: each engagement here is organized by the capabi
 
 | Engagement | Brief | Analysis | Memo |
 | --- | --- | --- | --- |
-| Perfect competition | [Brief](docs/briefs/perfect-competition-brief.md) | pending | pending |
+| Perfect competition | [Brief](docs/briefs/perfect-competition-brief.md) | [Analysis](analysis/2026-11-06-perfect-competition-analysis.md) | [Memo](docs/decisions/2026-11-06-perfect-competition-memo.md) |
 
 ## Layout
 
