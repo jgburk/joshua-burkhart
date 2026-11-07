@@ -19,6 +19,7 @@ Bed 11 for Tomato costs too much. 20 Carrots are the maximum we can plant. 30 Me
 ## The judgment call
 
 We would expand Carrot first ($352.49 per bed vs Mesclun @ $246.47)
+
 If temps need to be paid for the entire season, profit for the 10/20/30 plan would drop to $21,880 but that's still profitable. So we'd still plant it.
 
 ## What would change my answer
